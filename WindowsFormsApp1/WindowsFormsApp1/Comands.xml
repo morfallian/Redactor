@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<grammar version="1.0" xml:lang="ru-RU" root="Команды"
+xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics-ms/1.0">
+
+  <rule id = "Команды" scope = "public">
+		<one-of>
+		     <item>подключи библиотеку<ruleref uri="#Библиотека"/><tag> $ = $$</tag></item>
+				 <item>переменная<ruleref uri="#Переменные"/><tag> $ = $$</tag></item>
+				 <item>размер шрифта<ruleref uri="#Размер"/><tag> $ = $$</tag></item>
+				 <item>плюс<tag> $.plus = "+"</tag></item>
+				 <item>табуляция<tag> $.tab = "\t"</tag></item>
+				 <item>запусти</item>
+		</one-of>
+	</rule>
+  
+	<rule id="Библиотека" scope="private">
+		<one-of>
+			<item>сиэсви<tag> $.lib = "import csv\n"</tag></item>
+			<item>бьютифулсоуп<tag> $.lib = "import BeautifulSoup\n"</tag></item>
+		</one-of>
+	</rule>	
+  
+  <rule id="Размер" scope="private">
+		<one-of>
+      <item>двадцать<tag> $.num = "20"</tag></item>
+			<item>десять<tag> $.num = "10"</tag></item>
+		</one-of>
+	</rule>	
+  
+	<rule id="Переменные" scope="private">
+		<one-of>
+			<item>а<tag> $.var = "a "</tag></item>
+			<item>бэ<tag> $.var = "b "</tag></item>
+		  <item>цэ<tag> $.var = "c "</tag></item>
+		</one-of>
+	</rule>	
+
+</grammar>
