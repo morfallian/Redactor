@@ -87,5 +87,10 @@ namespace WindowsFormsApp1
             System.IO.File.WriteAllText(filename, box.Text);
 
         }
+
+        public static void RunHelp(Form2 form2)
+        {
+            form2.Show();
+        }
     }
 }

@@ -41,11 +41,10 @@ namespace WindowsFormsApp1
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +84,7 @@ namespace WindowsFormsApp1
             this.toolStripSplitButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(880, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(873, 27);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -121,20 +120,11 @@ namespace WindowsFormsApp1
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("MV Boli", 20F);
-            this.richTextBox1.Location = new System.Drawing.Point(13, 33);
+            this.richTextBox1.Location = new System.Drawing.Point(13, 32);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(855, 425);
+            this.richTextBox1.Size = new System.Drawing.Size(855, 426);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(64, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Help";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -143,18 +133,9 @@ namespace WindowsFormsApp1
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 7;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(714, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Поиск";
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(633, 4);
+            this.button2.Location = new System.Drawing.Point(687, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -164,7 +145,7 @@ namespace WindowsFormsApp1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(146, 4);
+            this.button3.Location = new System.Drawing.Point(71, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 24);
             this.button3.TabIndex = 10;
@@ -172,18 +153,27 @@ namespace WindowsFormsApp1
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(152, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Команды";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(880, 470);
+            this.ClientSize = new System.Drawing.Size(873, 470);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -209,11 +199,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private Button button1;
         private TextBox textBox1;
-        private Label label1;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }
 

@@ -20,16 +20,25 @@ namespace WindowsFormsApp1
         private RichTextBox box;
         private TextBox tbox;
         Event_Methods ev_meth = new Event_Methods();
-        public SpeechRecognition(RichTextBox _box, TextBox _tbox)
+        Form2 form;
+        SpeechRecognitionEngine sre;
+        public SpeechRecognition(RichTextBox _box, TextBox _tbox, Form2 form2)
         {
             box = _box;
             tbox = _tbox;
+            form = form2;
+        }
+        public void StopRecognition()
+        {
+            sre.RecognizeAsyncStop();
         }
         public void SpechRecog()
         {
-            SpeechRecognitionEngine sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("ru-RU"));
-
-            string grammarPath = @"C:\Users\Morfa\source\repos\WindowsFormsApp1\WindowsFormsApp1\";
+            if(sre == null)
+            {
+                sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("ru-RU"));
+            }
+            string grammarPath = @"C:\Users\Morfa\Diplom\WindowsFormsApp1\WindowsFormsApp1\";
             //Компилируем наше грамматическое правило в файл Commands.cfg
             FileStream fs = new FileStream(grammarPath + "Commands.cfg", FileMode.Create);
             SrgsGrammarCompiler.Compile(grammarPath + "Comands.xml", (Stream)fs);
@@ -101,6 +110,9 @@ namespace WindowsFormsApp1
                     case "запусти":
                         Event_Methods.run_code(box.Text);
                         break;
+                    case "команды":
+                        Event_Methods.RunHelp(form);
+                        break;
                 }
                 if (Regex.IsMatch(Text, @"размер шрифта(\w*)", RegexOptions.IgnoreCase))
                 {
@@ -124,6 +136,24 @@ namespace WindowsFormsApp1
                     box.SelectedText += a.Result.Semantics["var"].Value.ToString();
                     line = box.Text.Length;
                     box.SelectionStart = line;
+                }
+
+                if (Regex.IsMatch(Text, @"скролл вниз на(\w*)", RegexOptions.IgnoreCase))
+                {
+                    var countLinesStr = a.Result.Semantics["num"].Value.ToString();
+                    var countLines = Int32.Parse(countLinesStr);
+                    int lineNumber = box.GetLineFromCharIndex(box.SelectionStart);
+                    var pos = box.SelectionStart;
+                    if(box.Lines.Length - 1 >= lineNumber + countLines)
+                    {
+                        box.SelectionStart = box.Find(box.Lines[lineNumber + countLines]);
+                    }
+                    else
+                    {
+                        box.SelectionStart = box.Find(box.Lines[box.Lines.Length - 1]);
+                    }
+                    box.ScrollToCaret();
+                    box.Focus();
                 }
             }
         }

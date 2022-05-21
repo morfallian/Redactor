@@ -20,10 +20,17 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         string str = "";
+        Form2 form2;
+        SpeechRecognition SpeechRecog;
 
         public Form1()
         {
             InitializeComponent();
+            //textBox1.ScrollBars = ScrollBars.Both;
+            form2 = new Form2();
+            form2.OnsaveComands += OnsaveComands;
+            SpeechRecog = new SpeechRecognition(richTextBox1, textBox1, form2);
+            richTextBox1.ScrollBars = (RichTextBoxScrollBars)ScrollBars.Both;
         }
 
         private void OpenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -63,19 +70,28 @@ namespace WindowsFormsApp1
         }
         private void Form1_Shown(object sender, EventArgs e)
         {
-            SpeechRecognition speechRecog = new SpeechRecognition(richTextBox1, textBox1);
-
-            speechRecog.SpechRecog();
+            SpeechRecog.SpechRecog();
         }
-//Жмем кнопку "Найти"
+        //Жмем кнопку "Найти"
         private void button2_Click(object sender, EventArgs e)
         {
             Event_Methods.FindText(textBox1.Text, richTextBox1, textBox1);
         }
-//запускаем код
+        //запускаем код
         private void button3_Click(object sender, EventArgs e)
         {
             Event_Methods.run_code(richTextBox1.Text);
+        }
+        //Scrool
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Event_Methods.RunHelp(form2);
+        }
+
+        private void OnsaveComands()
+        {
+            SpeechRecog.StopRecognition();
+            SpeechRecog.SpechRecog();
         }
     }
 }
